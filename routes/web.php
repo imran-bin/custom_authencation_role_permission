@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeControler;
+ 
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function (Request $req) {
+//     dd($req->all());
+    
+// });
+Route::get('/',[HomeControler::class,'home'])->name('home'); 
+Route::get('/registration',[HomeControler::class,'register'])->name('registration');   
+Route::get('/login',[HomeControler::class,'login'])->name('login');   
 
-Route::get('test',function(){
-    return view('frontend.home');
-});
+ 
