@@ -20,7 +20,7 @@ class CustomerAuthController extends Controller
         return view('auth.login');
     }
     public function dashboard(){
-        return view('layout.dashboard');
+        return view('admin.dashboard');
     }
     public function customLogin(LoginVaidation $req)           
     {
@@ -29,7 +29,7 @@ class CustomerAuthController extends Controller
         
         $credential=$req->only('email','password');
         if(Auth::attempt($credential)){
-            return redirect()->intended('/')->withSuccess("Sign in");
+            return redirect()->intended('/dashboard')->withSuccess("Sign in");
         }
         return redirect('login')->withSuccess('Log in details are not valid');
          
