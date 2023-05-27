@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AuthencationInputValidation extends FormRequest
+class RegisterValidation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,12 +22,12 @@ class AuthencationInputValidation extends FormRequest
     public function rules(): array
     {
         return [
-            'email'=> 'required|email|unique:users',
-            'name'=>'required|string|max:50',
-            'password'=>'required',
+             "name"=>'required',
+             'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
         ];
     }
-   public function messages(){
+     public function messages(){
          return [
             'email.required' => 'Email is required!',
             'name.required' => 'Name is required!',
