@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\HomeControler;
  
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
     
 // });
 Route::get('/',[HomeControler::class,'home'])->name('home'); 
-Route::get('/registration',[HomeControler::class,'register'])->name('registration');   
-Route::get('/login',[HomeControler::class,'login'])->name('login');   
-
+Route::get('/registration',[CustomerAuthController::class,'register'])->name('registration');   
+Route::get('/login',[CustomerAuthController::class,'login'])->name('login');   
+Route::get('/dashboard',[CustomerAuthController::class,'dashboard'])->name('dashboard');
  
