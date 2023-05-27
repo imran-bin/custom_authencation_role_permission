@@ -24,6 +24,7 @@ Route::get('/',[HomeControler::class,'home'])->name('home');
 Route::get('/registration',[CustomerAuthController::class,'register'])->name('registration');   
 Route::get('/login',[CustomerAuthController::class,'login'])->name('login');   
 Route::get('/dashboard',[CustomerAuthController::class,'dashboard'])->name('dashboard');
+Route::get('/logout',[CustomerAuthController::class,'logout'])->name('logout');
 Route::post('/customLogin',[CustomerAuthController::class,'customLogin'])->name('customLogin');
 Route::post('/customRegister',[CustomerAuthController::class,'customRegister'])->name('customRegister');
  

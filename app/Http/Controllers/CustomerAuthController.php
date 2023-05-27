@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginVaidation;
 use App\Http\Requests\RegisterValidation;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -47,5 +48,11 @@ class CustomerAuthController extends Controller
             "email" => $data['email'],
             "password" => Hash::make($data['password']),
         ]);
+    }
+    public function logout(Request $request )
+    {
+        $request->session()->flush() ;
+        Auth::logout();
+        return redirect('login');
     }
 }
